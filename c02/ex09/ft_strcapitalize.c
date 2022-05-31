@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/31 17:19:18 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/05/31 18:23:52 by tlai-an          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
 char *ft_strcaptialize(char *str);
@@ -69,15 +81,4 @@ char *capital(char *str)
         n++;
     }
     return str;
-}
-
-
-
-int main()
-{
-    char *e;
-    char arr[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
-    e = ft_strcapitalize(arr);
-    printf("%s\n", e);
-    return (0);
 }
