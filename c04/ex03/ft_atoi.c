@@ -27,7 +27,7 @@ int checkspace(char *str)
     int n;
 
     n = 0;
-    while ( str[++n] == ' ' ){}
+    while ( str[++n] == ' ' || (str[++n] >= 9 && str[++n] <= 13)){}
     return (n);
 }
 
@@ -69,7 +69,7 @@ int convert(char *str, int sign, int o)
 
 int main()
 {
-    char arr1[30] = "     +-+--+23832adsa";
+    char arr1[30] = "       +-+--+23832adsa";
     int a;
     
     a = ft_atoi(arr1);
