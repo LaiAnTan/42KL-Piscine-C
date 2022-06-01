@@ -6,47 +6,37 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:28 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/05/31 17:19:32 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/01 15:13:44 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int n);
-
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int n)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-    int i;
+	unsigned int	index;
+	unsigned int	src_len;
 
-    n = (n - 1);
-    i = 0;
-    if (n < 0)
-    {
-        return i;
-    }
-    if (n > 0)
-    {
-        while (src[i] != '\0' && n != 0)
-        {
-            dest[i]=src[i];
-            n--;
-            i++;
-        }
-    }
-    dest[i] = '\0';
-    return i;
+	index = 0;
+	src_len = ft_strlen(src);
+	if (size == 0)
+		return (src_len);
+	while (index < size - 1 && src[index] != '\0')
+	{
+		dest[index] = src[index];
+		index++;
+	}
+	dest[index] = '\0';
+	return (src_len);
 }
 
-int main()
+unsigned int	ft_strlen(char *str)
 {
-    char str1[10] = "poggers";
-    char str2[10];
-    int e;
-    e = ft_strlcpy(str2, str1, 6);
-    ft_strlcpy(str2, str1, 6);
-    printf("%s\n", str2);
-    printf("%d\n", e);
-    
-    return 0;
+	unsigned int	length;
+
+	length = 0;
+	while (str[length] != '\0')
+	{
+		length++;
+	}
+	return (length);
 }

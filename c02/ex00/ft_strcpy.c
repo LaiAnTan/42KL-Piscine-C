@@ -9,21 +9,19 @@
 /*   Updated: 2022/05/31 17:34:10 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
+
 char	*ft_strcpy(char *dest, char *src);
 
 char	*ft_strcpy(char *dest, char *src)
 {
 	int	n;
 
-	n = 0;
-	while (src[n] != '\0')
+	n = -1;
+	while (src[++n] != '\0')
 	{
 		dest[n] = src[n];
-		n++;
-		if (src[n] == '\0')
-		{
-			dest[n] = '\0';
-		}
 	}
+	dest[n] = '\0';
 	return (dest);
 }

@@ -6,10 +6,10 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:18:42 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/05/31 17:44:32 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/01 15:01:53 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-char	*ft_strncpy(char *dest, char *src, unsigned int n);
+
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
