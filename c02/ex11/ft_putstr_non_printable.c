@@ -6,7 +6,7 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:37 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/05/31 17:23:42 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/01 11:17:28 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,4 @@ void    ft_putstr_non_printable(char *str)
 void    ft_putchar(char c)
 {
     write(1, &c, 1);
-}
-
-
-int main()
-{
-    ft_str_non_printable("Coucou\ntu \avas \tbien ?");
-    return 0;
 }
