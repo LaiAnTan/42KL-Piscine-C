@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/02 15:06:51 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/02 15:51:28 by tlai-an          ###   ########.fr       */
+/*   Created: 2022/06/02 15:06:11 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/02 17:27:15 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src);
+int	ft_strncmp(char *s1, char *s2, int n);
 
-char	*ft_strcat(char *dest, char *src)
+int	ft_strncmp(char *s1, char *s2, int n)
 {
-	int	count1;
-	int	count2;
+	int	x;
+	int	val;
 
-	count1 = 0;
-	count2 = 0;
-	while (dest[count1] != '\0')
+	x = 0;
+	while (x != n)
 	{
-		count1++;
-	}
-	while (src[count2] != '\0')
-	{
-		if (dest[count1] == '\0')
+		while (s1[x] != '\0' || s2[x] != '\0')
 		{
-			dest[count1] = src[count2];
-			count1++;
-			count2++;
+			if (s1[x] != s2[x])
+			{
+				if (s1[x] > s2[x])
+				{
+					val = (s1[x] - s2[x]);
+				}
+				else if (s1[x] < s2[x])
+				{
+					val = (-(s2[x] - s1[x]));
+				}
+				break ;
+			}
+			break ;
 		}
+		x++;
 	}
-	dest[count1] = '\0';
-	return (dest);
+	return (val);
 }

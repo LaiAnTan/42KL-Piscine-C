@@ -6,11 +6,9 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:19:28 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/01 15:13:44 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/02 10:31:28 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	index;

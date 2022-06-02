@@ -1,66 +1,35 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 16:37:23 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/02 17:29:26 by tlai-an          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char    *ft_strstr(char *str, char *to_find);
-int	ft_strlen(char *str);
+char	*ft_strstr(char *str, char *to_find);
 
-int	ft_strlen(char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int	n;
+	int	i;
+	int	j;
 
-	n = 0;
-	while (str[n] != '\0')
-		n++;
-	return (n);
-}
-
-char    *ft_strstr(char *str, char *to_find)
-{
-    int n;
-    int m;
-    int same;
-    int first;
-
-    n = -1;
-    m = 0;
-    same = 0;
-    first = 0;
-    while(str[++n] != '\0' && to_find[m] != '\0')
-    {
-        if (str[n] == to_find[m])
-        {
-            if (m == 0) // store the location of the first element found
-            {
-                first = n;
-            }
-            same++;
-            if (same == ft_strlen(to_find)) // to stop when whole substring has been found
-            {
-                break;
-            }
-            m++;
-        }else // reset if nothing found
-        {
-            same = 0;
-            first = 0;
-            m = 0;
-        }
-        
-    }
-    if (same == ft_strlen(to_find)) // returns the pointer to the begining of the substring found
-    {
-        return(&str[first]);
-    }
-    return(NULL); // return null if no conditions are met
-}
-
-int main()
-{
-    char str1[6] = "hi";
-    char str2[9]= "hi pizza";
-    char *e;
-
-    e = ft_strstr(str2, str1);
-    printf("%s\n", e);
-    return (0);
+	i = 0;
+	if (to_find[0] == '\0')
+		return (str);
+	while (str[i] != '\0')
+	{
+		j = 0;
+		while (str[i + j] != '\0' && str[i + j] == to_find[j])
+		{
+			if (to_find[j + 1] == '\0')
+				return (&str[i]);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

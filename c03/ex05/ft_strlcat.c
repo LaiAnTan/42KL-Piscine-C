@@ -1,5 +1,14 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 15:08:15 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/02 16:57:43 by tlai-an          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 unsigned int ft_strlcat(char *dest, char *src, unsigned int size);
 
@@ -35,22 +44,24 @@ unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
     return (o + p);
 }
 
-int main()
+#include <string.h>
+#include <stdio.h>
+
+int main(void)
 {
-    char str1[5] = "efgh";
-    char str2[8] = "abcd";
-    char str3[8] = "abcd";
-    int num1;
-    int num2;
+    int a;
+    int b;
+    char arr1[] = "kekw";
+    char arr2[] = "kekw";
+    char arr3[] = "kekw";
 
-
-
-    num1 = ft_strlcat(str2, str1, 6);
-    num2 = strlcat(str3, str1, 6);
-    printf("My function = %s\n", str2);
-    printf("%d\n", num1);
-    printf("System function = %s\n", str3);
-    printf("%d\n", num2);
-
-    return 0;
+    a = ft_strlcat(arr1, arr2, 2);
+    b = strlcat(arr3, arr2, 2);
+    printf("my func: %s\n", arr1);
+    printf("sys func: %s\n", arr3);
+    printf("my func: %d\n", a);
+    printf("my func: %d\n", a);
+    return (0);
 }
+
+
