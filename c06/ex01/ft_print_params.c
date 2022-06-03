@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     m = 0;
     while(n <= argc)
     {
-        if (n > argc)
+        if (n == argc)
             break;
         while(argv[n][m] != '\0')
             ++m;
