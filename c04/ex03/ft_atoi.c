@@ -7,7 +7,7 @@ int		ft_atoi(char *str)
     int rtval;
 
 	n = 0;
-	sign = -1;
+	sign = 1;
 	rtval = 0;
     while ( str[n] == ' ' || (str[n] >= 9 && str[n] <= 13))
 		++n;
@@ -27,7 +27,7 @@ int		ft_atoi(char *str)
 
 int main()
 {
-    char arr1[30] = "       +-+--+23adsa";
+    char arr1[30] = "       +-+--+237172adsa";
     int a;
     
     a = ft_atoi(arr1);
