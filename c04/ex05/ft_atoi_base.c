@@ -1,13 +1,40 @@
-#include <stdio.h>
 #include <unistd.h>
+#include <stdio.h>
 
+void	ft_atoi_base(char *str, char *base);
+int 	ft_atoi(char *str);
 void    ft_putnbr_base(int nbr, char *base);
 int     checkbase(char *base);
 void	ft_putchar(char c);
 
-void	ft_putchar(char c)
+void	ft_atoi_base(char *str, char *base)
 {
-	write(1, &c, 1);
+	ft_putnbr_base(ft_atoi(str), base);
+}
+
+int		ft_atoi(char *str)
+{
+	int n;
+    int sign;
+    int rtval;
+
+	n = 0;
+	sign = -1;
+	rtval = 0;
+    while ( str[n] == ' ' || (str[n] >= 9 && str[n] <= 13))
+		++n;
+    while ( str[n] == '+' || str[n] == '-')
+    {
+        if(str[n] == '-')
+            sign *= -1;
+		++n;
+    }
+    while (str[n] >= '0' && str[n] <= '9')
+    {
+        rtval = (rtval * 10) + (str[n] - '0');
+        ++n;
+    }
+    return (rtval * sign);
 }
 
 void    ft_putnbr_base(int nbr, char *base)
@@ -65,14 +92,17 @@ int checkbase(char *base)
     }
 }
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 int main()
 {
-    char e[] = "amongus";
-    int num;
-
-    num = 39415739;
-    printf("number: %d\n", num);
-    printf("base: %s\n", e);
-    ft_putnbr_base(num, e);
+    char arr1[30] = "       +-+--+39415739adsa";
+	char base[30] = "amongus";
+    printf("num = %s\n", arr1);
+	printf("base = %s\n", base);
+    ft_atoi_base(arr1, base);
     return (0);
 }

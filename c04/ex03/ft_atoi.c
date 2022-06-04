@@ -1,75 +1,33 @@
 #include <stdio.h>
 
-int ft_atoi(char *str);
-int checkspace(char *str);
-int checksign(char *str, int m);
-int convert(char *str, int sign, int o);
-
-int ft_atoi(char *str)
+int		ft_atoi(char *str)
 {
-    int n;
+	int n;
     int sign;
     int rtval;
 
-    n = checkspace(str);
-    sign = checksign(str, n);
-    while (str[n] < '0' || str[n] > '9')
+	n = 0;
+	sign = -1;
+	rtval = 0;
+    while ( str[n] == ' ' || (str[n] >= 9 && str[n] <= 13))
+		++n;
+    while ( str[n] == '+' || str[n] == '-')
+    {
+        if(str[n] == '-')
+            sign *= -1;
+		++n;
+    }
+    while (str[n] >= '0' && str[n] <= '9')
+    {
+        rtval = (rtval * 10) + (str[n] - '0');
         ++n;
-    if (str[n] >= '0' && str[n] <= '9')
-    {
-        rtval = convert(str, sign, n);
     }
-    return (rtval);
-}
-
-int checkspace(char *str)
-{
-    int n;
-
-    n = 0;
-    while ( str[++n] == ' ' || (str[++n] >= 9 && str[++n] <= 13)){}
-    return (n);
-}
-
-int checksign(char *str, int m)
-{
-    int count;
-
-    count = 0;
-    while ( str[m] == '+' || str[m] == '-')
-    {
-        if(str[++m] == '+'){}
-        if(str[++m] == '-')
-            ++count;
-    }
-    if (str[m] != '+' || str[m] != '-')
-    {
-        if ((count % 2) == 0) // positive
-            return (0);
-        if ((count % 2) == 1) // negative
-            return (1);
-    }
-}
-
-int convert(char *str, int sign, int o)
-{
-    int num;
-
-    num = 0;
-    while (str[o] >= '0' && str[o] <= '9')
-    {
-        num = (num * 10);
-        num = num + (str[o] - '0');
-        ++o;
-    }
-    if (sign == 1)
-        num = (-num);
-    return (num);
+    return (rtval * sign);
 }
 
 int main()
 {
-    char arr1[30] = "       +-+--+23832adsa";
+    char arr1[30] = "       +-+--+23adsa";
     int a;
     
     a = ft_atoi(arr1);

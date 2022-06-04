@@ -4,27 +4,21 @@ char *rev_print(char *str);
 
 char *rev_print(char *str)
 {
-    int x;
+    int n;
 
-    x = 0;
-    if (str[x] == '\0')
+    n = 0;
+    while (str[n] != '\0')
+        ++n;
+    if (str[n] == '\0')
     {
-        write(1, "\n", 1);
-        return str;
-    }
-    while (str[x] != '\0')
-    {
-        x++;
-    }
-    if (str[x] == '\0')
-    {
-        while (x != 0)
+        --n;
+        while (n >= 0)
         {
-            x--;
-            write(1,&str[x], 1);
+            write(1, &str[n], 1);
+            --n;
         }
     }
-    return str;
+    return (str);
 }
 
 int main ()
