@@ -6,7 +6,7 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 11:17:53 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/03 11:21:23 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/05 10:59:26 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,13 @@ void	ft_putnbr(int nb)
 	if (nb < 0)
 	{
 		ft_putchar('-');
-		ft_putnbr(-nb);
+		if (nb == -2147483648)
+		{
+			ft_putchar('2');
+			ft_putnbr(147483648);
+		}
+		else
+			ft_putnbr(-nb);
 	}
 	else if (nb >= 10)
 	{
@@ -37,12 +43,3 @@ void	ft_putnbr(int nb)
 		ft_putchar((nb % 10) + '0');
 	}
 }
-
-int main()
-{
-	ft_putnbr(42);
-	return 0;
-}
-
-
-// fix this code
