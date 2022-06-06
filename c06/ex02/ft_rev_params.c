@@ -6,7 +6,7 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 16:59:04 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/05 17:05:34 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/06 15:40:02 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@ int	main(int argc, char *argv[])
 	int	n;
 	int	m;
 
-	n = (argc - 1);
-	m = 0;
-	while (n >= 1)
+	n = argc;
+	m = -1;
+	while (--n > 0)
 	{
-		while (argv[n][m] != '\0')
-			++m;
-		write(1, argv[n], m);
+		while (argv[n][++m] != '\0')
+			write(1, argv[n][m], 1);
 		write(1, "\n", 1);
-		--n;
+		m = -1;
 	}
 	return (0);
 }
