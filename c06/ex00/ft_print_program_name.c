@@ -1,11 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/05 16:58:50 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/05 17:00:54 by tlai-an          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-    int n;
+	int	n;
 
-    n = 0;
-    while(argv[0][n++] != '\0'){}
-    write(1, argv[0], n);
-    return 0;
+	(void) argc;
+	n = 0;
+	while (argv[0][n] != '\0')
+		n++;
+	write(1, argv[0], n);
+	return (0);
 }

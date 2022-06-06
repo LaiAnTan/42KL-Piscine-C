@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/02 15:06:02 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/02 15:14:20 by tlai-an          ###   ########.fr       */
+/*   Created: 2022/06/05 14:53:19 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/05 15:16:06 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,15 @@ int	ft_strcmp(char *s1, char *s2);
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int	x;
+	int	i;
 
-	x = 0;
-	while (s1[x] != '\0' || s2[x] != '\0')
+	i = 0;
+	while (1)
 	{
-		if (s1[x] != s2[x])
-		{
-			if (s1[x] > s2[x])
-			{
-				return (s1[x] - s2[x]);
-			}
-			else if (s1[x] < s2[x])
-			{
-				return (-(s2[x] - s1[x]));
-			}
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		else if (s1[i] == s2[i] && s1[i] == '\0')
 			return (0);
-		}
-		x++;
+		i++;
 	}
 }

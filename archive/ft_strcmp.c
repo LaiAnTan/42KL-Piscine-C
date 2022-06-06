@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 14:54:34 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/05 15:18:43 by tlai-an          ###   ########.fr       */
+/*   Created: 2022/06/02 15:06:02 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/02 15:14:20 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb);
+int	ft_strcmp(char *s1, char *s2);
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int				i;
-	unsigned int	j;
+	int	x;
 
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (j < nb && src[j] != '\0')
-		dest[i++] = src[j++];
-	dest[i] = '\0';
-	return (dest);
+	x = 0;
+	while (s1[x] != '\0' || s2[x] != '\0')
+	{
+		if (s1[x] != s2[x])
+		{
+			if (s1[x] > s2[x])
+			{
+				return (s1[x] - s2[x]);
+			}
+			else if (s1[x] < s2[x])
+			{
+				return (-(s2[x] - s1[x]));
+			}
+			return (0);
+		}
+		x++;
+	}
 }

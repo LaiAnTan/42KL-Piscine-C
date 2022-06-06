@@ -24,7 +24,7 @@ int	main()
 {
 	int a;
 	
-	a = ft_is_prime(42);
+	a = ft_is_prime(11);
 	printf("%d\n", a);
 	return (0);
 }

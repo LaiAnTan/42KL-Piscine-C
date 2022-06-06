@@ -5,38 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/02 15:06:11 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/02 17:27:15 by tlai-an          ###   ########.fr       */
+/*   Created: 2022/06/05 14:53:30 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/05 15:16:59 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, int n);
+int	ft_strncmp(char *s1, char *s2, unsigned int n);
 
-int	ft_strncmp(char *s1, char *s2, int n)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	x;
-	int	val;
+	unsigned int	i;
 
-	x = 0;
-	while (x != n)
+	i = 0;
+	while (i < n)
 	{
-		while (s1[x] != '\0' || s2[x] != '\0')
-		{
-			if (s1[x] != s2[x])
-			{
-				if (s1[x] > s2[x])
-				{
-					val = (s1[x] - s2[x]);
-				}
-				else if (s1[x] < s2[x])
-				{
-					val = (-(s2[x] - s1[x]));
-				}
-				break ;
-			}
-			break ;
-		}
-		x++;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		if (s2[i + 1] == '\0')
+			return (s1[i + 1] - s2[i + 1]);
+		i++;
 	}
-	return (val);
+	return (0);
 }

@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/05 16:59:04 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/05 17:05:34 by tlai-an          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int main(int argc,char *argv[])
+int	main(int argc, char *argv[])
 {
-	int n;
-	int m;
+	int	n;
+	int	m;
 
 	n = (argc - 1);
 	m = 0;
-	while(n >= 1)
-    {
-        while(argv[n][m] != '\0')
+	while (n >= 1)
+	{
+		while (argv[n][m] != '\0')
 			++m;
-        write(1, argv[n], m);
-        write(1, "\n", 1);
+		write(1, argv[n], m);
+		write(1, "\n", 1);
 		--n;
-    }
+	}
 	return (0);
 }
