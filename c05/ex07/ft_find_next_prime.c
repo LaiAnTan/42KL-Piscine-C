@@ -6,56 +6,44 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 09:05:44 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/07 09:05:44 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/07 10:10:17 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-
 int	ft_find_next_prime(int nb);
-int isprime(int test);
+int	isprime(int test);
 
-int ft_find_next_prime(int nb)
+int	ft_find_next_prime(int nb)
 {
-	int nextprime;
-	int bool;
+	int	nextprime;
+	int	_bool;
 
 	nextprime = nb;
-	bool = 0;
+	_bool = 0;
 	if (nb <= 1)
 		return (2);
-	while (bool == 0)
+	while (_bool == 0)
 	{
 		++nextprime;
 		if (isprime(nextprime))
-			bool = 1;
+			_bool = 1;
 	}
 	return (nextprime);
 }
 
-int isprime(int test)
+int	isprime(int test)
 {
-	int n;
+	int	n;
 
 	n = 2;
 	if (test == 0 || test == 1)
 		return (0);
-	while(++n <= (test / 2))
+	while (++n <= (test / 2))
 	{
-		if(((test % n) == 0))
+		if (((test % n) == 0))
 		{
 			return (0);
-			break;
+			break ;
 		}
 	}
 	return (1);
-}
-
-int	main()
-{
-	int a;
-	
-	a = ft_find_next_prime(25);
-	printf("%d\n", a);
-	return (0);
 }

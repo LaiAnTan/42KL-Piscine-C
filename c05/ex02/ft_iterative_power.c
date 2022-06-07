@@ -6,18 +6,15 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 09:04:36 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/07 09:04:36 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/07 10:03:48 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-
 int	ft_iterative_power(int nb, int power);
 
 int	ft_iterative_power(int nb, int power)
 {
-	int n;
-	int val;
+	int	n;
+	int	val;
 
 	n = 0;
 	val = nb;
@@ -28,10 +25,4 @@ int	ft_iterative_power(int nb, int power)
 	while (++n < power)
 		val *= nb;
 	return (val);
-}
-
-int main()
-{
-	printf("power: %d\n", ft_iterative_power(2, 4));
-	return 0;
 }

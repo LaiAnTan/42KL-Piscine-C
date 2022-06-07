@@ -6,17 +6,14 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 09:05:14 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/07 09:05:14 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/07 10:06:31 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+int	ft_sqrt(int nb);
 
-#include <stdio.h>
-
-int ft_sqrt(int nb);
-
-int ft_sqrt(int nb)
+int	ft_sqrt(int nb)
 {
-	int n;
+	int	n;
 
 	n = 0;
 	while (n <= 46340)
@@ -25,14 +22,5 @@ int ft_sqrt(int nb)
 			return (n);
 		++n;
 	}
-	return 0;
-}
-
-int main()
-{
-	int a;
-	int b;
-	a = 10;
-	b = ft_sqrt(a);
-	printf("square root of %d is %f", a, b);
+	return (0);
 }
