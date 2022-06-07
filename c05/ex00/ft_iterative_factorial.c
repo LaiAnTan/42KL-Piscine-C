@@ -21,14 +21,17 @@ int	ft_iterative_factorial(int nb)
 
 	n = 0;
 	val = 1;
+	if (nb < 0)
+		return (0);
+	else if (nb == 0 || nb == 1)
+		return (1);
 	while (++n <= nb)
 		val *= n;
 	return (val);
-
 }
 
 int main()
 {
-	printf("factorial result: %d\n", ft_iterative_factorial(10));
+	printf("factorial result: %d\n", ft_iterative_factorial(-1));
 	return 0;
 }

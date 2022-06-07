@@ -9,7 +9,6 @@
 /*   Updated: 2022/06/07 09:04:36 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <stdio.h>
 
 int	ft_iterative_power(int nb, int power);
@@ -21,7 +20,7 @@ int	ft_iterative_power(int nb, int power)
 
 	n = 0;
 	val = nb;
-	if (nb == 0 && power == 0)
+	if (power == 0)
 		return (1);
 	if (power < 0)
 		return (0);
@@ -32,6 +31,6 @@ int	ft_iterative_power(int nb, int power)
 
 int main()
 {
-	printf("power: %d\n", ft_iterative_power(2, 4));
+	printf("power: %d\n", ft_iterative_power(1, 2));
 	return 0;
 }
