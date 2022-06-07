@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 16:58:50 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/06 15:35:14 by tlai-an          ###   ########.fr       */
+/*   Created: 2022/06/07 09:02:16 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/07 09:02:16 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int	main(int argc, char *argv[])
 {
-	int	n;
+	int	i;
 
 	(void) argc;
-	n = -1;
-	while (argv[0][++n] != '\0')
-		write(1, argv[0], n);
-	write(1, "\n", 1);
+	i = -1;
+	while (argv[0][++i] != '\0')
+	{
+		write (1, &argv[0][i], 1);
+	}
+	write (1, "\n", 1);
 	return (0);
 }
