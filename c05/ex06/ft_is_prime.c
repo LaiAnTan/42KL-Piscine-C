@@ -6,7 +6,7 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 09:05:31 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/07 10:07:52 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/07 16:46:20 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_is_prime(int nb);
@@ -16,7 +16,11 @@ int	ft_is_prime(int nb)
 	int	n;
 
 	n = 2;
+	if (nb < 0)
+		return (0);
 	if (nb == 0 || nb == 1)
+		return (0);
+	if (nb == 4)
 		return (0);
 	while (++n <= (nb / 2))
 	{

@@ -6,11 +6,12 @@
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 09:05:44 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/07 10:10:17 by tlai-an          ###   ########.fr       */
+/*   Updated: 2022/06/07 16:48:38 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_find_next_prime(int nb);
+
 int	isprime(int test);
+int	ft_find_next_primt(int nb);
 
 int	ft_find_next_prime(int nb)
 {
@@ -36,6 +37,8 @@ int	isprime(int test)
 
 	n = 2;
 	if (test == 0 || test == 1)
+		return (0);
+	if (test == 4)
 		return (0);
 	while (++n <= (test / 2))
 	{
