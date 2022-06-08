@@ -1,3 +1,6 @@
+#ifndef FT_BOOLEAN_H
+#define FT_BOOLEAN_H
+
 #include <unistd.h>
 
 typedef unsigned int t_bool;
@@ -10,4 +13,6 @@ t_bool	ft_is_even(int nbr);
 #define EVEN_MSG "I have an even number of arguments.\n"
 #define ODD_MSG "I have an odd number of arguements.\n"
 #define SUCCESS 0
-#define EVEN(nbr) ((nbr) % (2) ? (TRUE) : (FALSE))
+#define EVEN(nbr) ((nbr) % (2) ? (FALSE) : (TRUE))
+
+#endif

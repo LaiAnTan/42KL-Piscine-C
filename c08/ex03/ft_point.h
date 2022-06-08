@@ -1,9 +1,10 @@
-typedef struct t_point;
+#ifndef FT_POINT_H
+#define FT_POINT_H
 
-struct t_point
+typedef struct t_point
 {
-	int x[1];
-	int y[1];
-};
+	int x;
+	int y;
+} t_point;
 
-struct t_point *point;
+#endif

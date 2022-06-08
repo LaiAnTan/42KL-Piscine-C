@@ -10,14 +10,14 @@ char	*ft_strdup(char *src)
 	char *dest;
 
 	n = 0;
-	while (src[n] != '\0')
-		++n;
-	dest = (char*) malloc(n * sizeof(char));
-	if (dest == 0)
+	if((dest = (char*) malloc(n * sizeof(char))) == NULL)
 		return (0);
-	n = -1;
-	while (src[++n] != '\0')
+	while (src[n])
+	{
 		dest[n] = src[n];
+		n++;
+	}
+	dest[n] = '\0';
 	return (dest);
 }
 

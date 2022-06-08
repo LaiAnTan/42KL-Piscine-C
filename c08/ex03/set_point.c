@@ -13,4 +13,3 @@ int	main(void)
 	set_point(&point);
 	return (0);
 }
-
