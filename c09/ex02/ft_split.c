@@ -5,106 +5,95 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 16:43:33 by tlai-an           #+#    #+#             */
-/*   Updated: 2022/06/09 16:49:32 by tlai-an          ###   ########.fr       */
+/*   Created: 2022/06/09 23:11:27 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/09 23:11:29 by tlai-an          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdbool.h>
 
-bool	is_char_in_string(char c, char *set)
+int	is_charset(char c, char *charset)
 {
-	while (true)
+	int	i;
+
+	i = 0;
+	while (charset[i] != '\0')
 	{
-		if (*set == '\0')
-			return (c == '\0');
-		if (*set == c)
-			return (true);
-		set++;
+		if (c == charset[i])
+			return (1);
+		i++;
 	}
-	return (false);
+	if (c == '\0')
+		return (1);
+	return (0);
 }
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	total_words(char *str, char *charset)
 {
-	unsigned int	index;
+	int	total;
+	int	i;
+	int	check_current;
+	int	check_next;
 
-	index = 0;
-	while (index < n && src[index] != '\0')
+	total = 0;
+	i = 0;
+	while (str[i] != '\0')
 	{
-		dest[index] = src[index];
-		index++;
+		check_current = is_charset(str[i], charset);
+		check_next = is_charset(str[i + 1], charset);
+		if (check_current == 0 && check_next == 1)
+			total++;
+		i++;
 	}
-	while (index < n)
-	{
-		dest[index] = '\0';
-		index++;
-	}
-	return (dest);
+	return (total);
 }
 
-int	count_occur(char *str, char *charset)
+void	insert(char *dest, char *str, char *charset)
 {
-	int		count;
-	char	*previous;
-	char	*next;
+	int	i;
 
-	count = 0;
-	previous = str;
-	next = str;
-	while (true)
+	i = 0;
+	while (is_charset(str[i], charset) == 0)
 	{
-		if (is_char_in_string(*str, charset))
-			next = str;
-		if (next - previous > 1)
-			count++;
-		if (*str == '\0')
-			break ;
-		previous = next;
-		str++;
+		dest[i] = str[i];
+		i++;
 	}
-	return (count);
+	dest[i] = '\0';
 }
 
-int	add_part(char **entry, char *previous, int size, char *charset)
+void	insert_word(char **result, char *str, char *charset)
 {
-	if (is_char_in_string(previous[0], charset))
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	k = 0;
+	while (str[i] != '\0')
 	{
-		previous++;
-		size--;
+		if (is_charset(str[i], charset) == 1)
+			i++;
+		else
+		{
+			j = 0;
+			while (is_charset(str[i + j], charset) == 0)
+				j++;
+			result[k] = (char *)malloc(sizeof(char) * (j + 1));
+			insert(result[k], str + i, charset);
+			i += j;
+			k++;
+		}
 	}
-	*entry = (char *)malloc((size + 3) * sizeof(char));
-	ft_strncpy(*entry, previous, size);
-	(*entry)[size] = '\0';
-	(*entry)[size + 1] = '\0';
-	return (1);
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	int		index;
-	int		size;
-	char	*previous;
-	char	*next;
-	char	**array;
+	char	**result;
+	int		words;
 
-	array = (char **)malloc((count_occur(str, charset) + 1) * sizeof(char *));
-	index = 0;
-	previous = str;
-	next = str;
-	while (true)
-	{
-		if (is_char_in_string(*str, charset))
-			next = str;
-		size = (next - previous);
-		if ((size) > 1)
-			index += add_part(&array[index], previous, size, charset);
-		if (*str == '\0')
-			break ;
-		previous = next;
-		str++;
-	}
-	array[index] = 0;
-	return (array);
+	words = total_words(str, charset);
+	result = (char **)malloc(sizeof(char *) * (words + 1));
+	result[words] = 0;
+	insert_word(result, str, charset);
+	return (result);
 }

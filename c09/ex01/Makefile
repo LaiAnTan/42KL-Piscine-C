@@ -10,19 +10,28 @@
 #                                                                              #
 # **************************************************************************** #
 
+SOURCE = ft_putchar.c ft_putstr.c ft_strcmp.c ft_strlen.c ft_swap.c
+
+SOURCEDIR = ./srcs/
+
+HEADERDIR = ./includes/
+
+SOURCEPATH = ${addprefix ${SOURCE}, ${SOURCE}}
+
+SRCS_O := ${SRCS:.c=.o}
+
 all : libft.a
 
+.cto.o : 
+	gcc -Wall -Wextra -Werror -c -I ${HEADERDIR} -o $< ${<:.c=.o}
+
 libft.a :
-	gcc -Wall -Wextra -Werror -c -I ./includes/*.h -O ./srcs/*.c
-	mv *.o ./srcs/
-	ar rcs libft.a ./srcs/*.o
+	ar rcs libft.a ${SRCS_O}
 
 clean : 
-	rm ./srcs/*.o
+	rm -f ${SRCS_O}
 
 fclean : clean
-	rm libft.a
+	rm -f libft.a
 
-re : fclean all
-
-.PHONY : all clean fclean re 
+re : fclean all 
