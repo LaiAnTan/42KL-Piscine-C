@@ -1,16 +1,27 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/09 10:11:29 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/09 10:49:57 by tlai-an          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 char	*ft_strdup(char *src);
 
 char	*ft_strdup(char *src)
 {
-	int n;
-	char *dest;
+	int		n;
+	char	*dest;
 
 	n = 0;
-	if((dest = (char*) malloc(n * sizeof(char))) == NULL)
+	dest = (char *) malloc(n * sizeof(char));
+	if (dest == 0)
 		return (0);
 	while (src[n])
 	{
@@ -19,18 +30,4 @@ char	*ft_strdup(char *src)
 	}
 	dest[n] = '\0';
 	return (dest);
-}
-
-int	main()
-{
-	char a[] = "hello";
-	char *b;
-	char *c;
-
-	b = strdup(a);
-	c = ft_strdup(a);
-	printf("source: %s\n", a);
-	printf("system: %s\n", b);
-	printf("my func: %s\n", c);
-	return (0);
 }

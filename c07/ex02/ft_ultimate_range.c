@@ -1,4 +1,15 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/09 10:12:18 by tlai-an           #+#    #+#             */
+/*   Updated: 2022/06/09 11:25:45 by tlai-an          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 int	ft_ultimate_range(int **range, int min, int max);
@@ -11,11 +22,12 @@ int	ft_ultimate_range(int **range, int min, int max)
 	i = 0;
 	if (min >= max)
 	{
-		ret = NULL;
+		ret = 0;
 		return (0);
 	}
-	if (!(ret = malloc(sizeof(int) * (max - min))))
-		return (-1);
+	ret = malloc(sizeof(int) * (max - min));
+	if (ret == 0)
+		return (0);
 	while (min < max)
 	{
 		ret[i] = min;
@@ -24,14 +36,4 @@ int	ft_ultimate_range(int **range, int min, int max)
 	}
 	*range = ret;
 	return (i);
-}
-
-int	main()
-{
-	int **a;
-	int b;
-
-	b = ft_ultimate_range(a, 8, 10);
-	printf("%d\n", b);
-	return (0);
 }
