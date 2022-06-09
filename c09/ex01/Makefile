@@ -18,11 +18,11 @@ HEADERDIR = ./includes/
 
 SOURCEPATH = ${addprefix ${SOURCE}, ${SOURCE}}
 
-SRCS_O := ${SRCS:.c=.o}
+SRCS_O := ${SOURCE:.c=.o}
 
 all : libft.a
 
-.cto.o : 
+.c.o : 
 	gcc -Wall -Wextra -Werror -c -I ${HEADERDIR} -o $< ${<:.c=.o}
 
 libft.a :
