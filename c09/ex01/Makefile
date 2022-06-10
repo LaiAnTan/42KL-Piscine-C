@@ -1,37 +1,29 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: tlai-an <tlai-an@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/09 16:40:48 by tlai-an           #+#    #+#              #
-#    Updated: 2022/06/09 16:40:51 by tlai-an          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+SRC_PATH = ./srcs/
 
-SOURCE = ft_putchar.c ft_putstr.c ft_strcmp.c ft_strlen.c ft_swap.c
+HEADER_PATH = ./includes/
 
-SOURCEDIR = ./srcs/
+SRC = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
 
-HEADERDIR = ./includes/
+SRCS = ${addprefix ${SRC_PATH}, ${SRC}}
 
-SOURCEPATH = ${addprefix ${SOURCE}, ${SOURCE}}
+SRCS_O := ${SRCS:.c=.o}
 
-SRCS_O := ${SOURCE:.c=.o}
+CFLAGS = -Wall -Wextra -Werror
 
-all : libft.a
+LIB = libft.a
 
-.c.o : 
-	gcc -Wall -Wextra -Werror -c -I ${HEADERDIR} -o $< ${<:.c=.o}
+all : ${LIB}
 
-libft.a :
-	ar rcs libft.a ${SRCS_O}
+.c.o :
+	gcc ${CFLAGS} -c -I${HEADER_PATH} $< -o ${<:.c=.o} 
 
-clean : 
+libft.a : ${SRCS_O}
+	ar rcs ${LIB} ${SRCS_O}
+
+clean :
 	rm -f ${SRCS_O}
 
 fclean : clean
-	rm -f libft.a
+	rm -f ${LIB}
 
-re : fclean all 
+re : fclean all
