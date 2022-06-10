@@ -1,6 +1,9 @@
 # 42KL-Piscine
 A collection of exercises from the 42KL Piscine.
 
+Level: 6, 33%
+Hours: 146
+
 Results:
 
 c00: 62%
