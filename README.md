@@ -1,7 +1,7 @@
 # 42KL-Piscine
 A collection of exercises from the 42KL Piscine.
 
-Level: 6, 33%
+Level: 7, 15%
 Hours: 146
 
 Results:
@@ -33,13 +33,10 @@ ex00: OK | ex01: OK | ex02: OK | ex03: SIGABORT | ex04: Nothing turned in | ex05
 c08: 70%
 ex00: OK | ex01: OK | ex02: OK | ex03: OK | ex04: OK | ex05: Nothing turned in
 
-c09: 
-
-
 rush00: 100%
 exam00: 32%
 exam01: 32%
 exam02: 42%
-finalexam: 
+exam03: 54%
 
 
