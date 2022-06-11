@@ -1,5 +1,7 @@
 # 42KL-Piscine
-A collection of exercises from the 42KL Piscine.
+A collection of exercises that i have completed from the 42schools Kuala Lumpur Piscine.
+
+Statistics:
 
 Level: 7, 15%
 Hours: 146
